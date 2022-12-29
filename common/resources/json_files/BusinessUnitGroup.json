@@ -1,0 +1,34 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 3,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo", "credit"],
+    "primary_key": ["BusinessUnitGroupID"],
+    "columns_list": [
+      {
+        "name": "BusinessUnitGroupID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 100,
+        "db_data_type": "integer NOT NULL UNIQUE"
+      },
+     {
+        "name": "BusinessUnitGroupName",
+        "provider": "standard",
+        "type": "string",
+        "options": ["NULL"],
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

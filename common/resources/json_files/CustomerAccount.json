@@ -1,0 +1,81 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 9,
+    "number_of_records": 10,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["CustomerAccountID"],
+    "columns_list": [
+      {
+        "name": "CustomerAccountID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 1000,
+        "db_data_type": "int not null UNIQUE"
+      },
+      {
+        "name": "CustomerAccountName",
+        "provider": "standard",
+        "type": "string",
+        "length": 40,
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "CustomerAccountType",
+        "provider": "standard",
+        "type": "string",
+        "options": ["loyalty","rebate","trade","consumer_chg","installment","layway","rental","workorder"],
+        "db_data_type": "varchar(20)"
+      },
+      {
+        "name": "CustomerID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 1000,
+        "table_name": "Customer",   "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerID",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "CustomerAccountEffectiveDate",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-180d",
+        "end_date": "-60d",
+        "db_data_type": "datetime"
+      },
+      {
+        "name": "CustomerAccountExpirationDate",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "+300d",
+        "end_date": "+400d",
+        "db_data_type": "datetime"
+      },
+      {
+        "name": "StatusCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["ACT","INACT"],
+        "db_data_type": "char(5)"
+      },
+      {
+        "name": "DefaultShipTo",
+        "provider": "standard",
+        "type": "string",
+        "length": 70,
+        "db_data_type": "varchar(70)"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

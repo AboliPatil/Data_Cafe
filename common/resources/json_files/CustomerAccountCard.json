@@ -1,0 +1,42 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 4,
+    "number_of_records": 2,
+    "providers": ["profile", "standard", "bank", "geo", "credit"],
+    "primary_key": ["CustomerAccountCardID"],
+    "columns_list": [
+      {
+        "name": "CustomerAccountCardID",
+        "provider": "standard",
+        "type": "string",
+        "length": 20,
+        "db_data_type": "varchar(20) not null UNIQUE"
+      },
+     {
+        "name": "ExpirationDate",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "+1460d",
+        "end_date": "+1500d",
+        "db_data_type": "datetime"
+      },
+      {
+        "name": "IssueSequenceNumber",
+        "provider": "standard",
+        "type": "int",
+        "min": 1000,
+        "max": 9999,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 7,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["RetailTransactionLineItemSequenceNumber"],
+    "columns_list": [
+      {
+        "name": "TransactionID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1000000000,
+        "max": 9999999999,
+        "table_name": "Transaction",   "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "TransactionID",
+        "db_data_type": "char(32)"
+      },
+      {
+        "name": "RetailTransactionLineItemSequenceNumber",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 32767,
+        "db_data_type": "smallint"
+      },
+      {
+        "name": "CustomerAccountID",
+        "provider": "standard",
+        "type": "string",
+        "table_name": "CustomerAccount",   "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerAccountID",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "CustomerAccountCardID",
+        "provider": "credit",
+        "type": "int",
+        "min": 1000000000000000,
+        "max": 9999999999999999,
+        "table_name": "CustomerAccountCard",   "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerAccountCardID",
+        "db_data_type": "varchar(20)"
+      },
+      {
+        "name": "AmountReceived",
+        "provider": "standard",
+        "type": "double",
+        "right": 5,
+        "min": 10000,
+        "max": 20000,
+        "db_data_type": "decimal(16,5)"
+      },
+      {
+        "name": "CustomerAccountInvoiceID",
+        "provider": "standard",
+        "type": "int",
+        "min": 10000,
+        "max": 99999,
+        "table_name": "CustomerAccountInvoice",   "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerAccountInvoiceID",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

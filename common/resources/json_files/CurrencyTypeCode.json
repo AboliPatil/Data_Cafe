@@ -1,0 +1,54 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 6,
+    "number_of_records": 10,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["ISOCurrencyCode"],
+    "columns_list": [
+      {
+        "name": "ISOCurrencyCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["USD", "INR"],
+        "db_data_type": "char(3) NOT NULL UNIQUE"
+      },
+      {
+        "name": "ISOCurrencyNumber",
+        "provider": "standard",
+        "type": "string",
+        "options": ["840", "356"],
+        "db_data_type": "char(3) NOT NULL"
+      },
+      {
+        "name": "ISOCurrencyName",
+        "provider": "standard",
+        "type": "string",
+        "options": ["United States dollar", "Indian rupee"],
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "RetailerAssignedCurrencyTypeCode",
+        "provider": "standard",
+        "type": "string",
+        "length": 20,
+        "db_data_type": "varchar(20) NOT NULL"
+      },
+      {
+        "name": "Symbol",
+        "provider": "standard",
+        "type": "string",
+        "option": ["$","Rs"],
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

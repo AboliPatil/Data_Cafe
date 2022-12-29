@@ -1,0 +1,79 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 9,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["TransactionID"],
+    "columns_list": [
+      {
+        "name": "TransactionID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1000000000,
+        "max": 9999999999,
+        "db_data_type": "char(32) not null UNIQUE"
+      },
+      {
+        "name": "BusinessDayDate",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-3d",
+        "end_date": "+30d",
+        "db_data_type": "datetime"
+      },
+      {
+        "name": "SequenceNumber",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 1000,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "TransactionTypeCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["Null"],
+        "db_data_type": "char(6)"
+      },
+      {
+        "name": "CancelledFlag",
+        "provider": "standard",
+        "type": "int",
+        "options": [0, 1],
+        "db_data_type": "integer"
+      },
+      {
+        "name": "VoidedFlag",
+        "provider": "standard",
+        "type": "int",
+        "options": [0, 1],
+        "db_data_type": "integer"
+      },
+      {
+        "name": "SuspendedFlag",
+        "provider": "standard",
+        "type": "int",
+        "options": [0, 1],
+        "db_data_type": "integer"
+      },
+      {
+        "name": "SessionID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 100,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

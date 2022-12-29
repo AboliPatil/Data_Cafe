@@ -1,0 +1,68 @@
+{
+  "TableProperties": {
+    "number_of_columns": 7,
+    "number_of_records": 500,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["CustomerOrderLineItemSequenceNumber"],
+    "columns_list": [
+      {
+        "name": "CustomerOrderID",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 1000000000,
+        "max": 9999999999,
+        "table_name": "CustomerOrder", "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerOrderID",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "CustomerOrderLineItemSequenceNumber",
+        "provider": "standard",
+        "type": "Integer",
+        "db_data_type": "smallint not null UNIQUE"
+      },
+      {
+        "name": "TransactionID",
+        "provider": "profile",
+        "type": "varchar(32)",
+        "length": 10,
+        "table_name": "Transaction", "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "TransactionID",
+        "db_data_type": "char(32)"
+      },
+      {
+        "name": "RetailTransactionLineItemSequenceNumber",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 1,
+        "max": 32657,
+        "table_name": "PaymentOnAccountLineItem", "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "RetailTransactionLineItemSequenceNumber",
+        "db_data_type": "smallint"
+      },
+      {
+        "name": "RelativeOrder",
+        "provider": "standard",
+        "type": "Integer",
+        "options": ["NULL"],
+        "db_data_type": "smallint"
+      },
+      {
+        "name": "LineItemNumber",
+        "provider": "standard",
+        "type": "Integer",
+        "options": ["NULL"],
+        "db_data_type": "smallint"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "TableProperties": {
+    "number_of_columns": 10,
+    "number_of_records": 50,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "columns_list": [
+      {
+        "name": "CustomerOrderID",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 999999999,
+        "max": 9999999999,
+        "table_name": "CustomerOrder", "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerOrderID",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "CustomerOrderLineItemSequenceNumber",
+        "provider": "standard",
+        "type": "Integer",
+        "table_name": "CustomerOrderLineItem", "Comment": "Maintaining relationship between two data sets",
+        "foreign_key": "CustomerOrderLineItemSequenceNumber",
+        "db_data_type": "smallint"
+      },
+      {
+        "name": "ItemID",
+        "provider": "profile",
+        "type": "String",
+        "length": 10,
+        "options": ["NULL"],
+        "db_data_type": "char(32)"
+      },
+      {
+        "name": "Description",
+        "provider": "profile",
+        "type": "String",
+        "length": 255,
+        "db_data_type": "varchar(255)"
+      },
+      {
+        "name": "OrderedItemQuantity",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 1,
+        "max": 100,
+        "db_data_type": "DECIMAL(9,3)"
+      },
+      {
+        "name": "FulfilledItemQuantity",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 10,
+        "max": 100,
+        "db_data_type": "DECIMAL(9,3)"
+      },
+      {
+        "name": "SaleUnitRetailPriceAmount",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 1,
+        "max": 1000,
+        "options": ["NULL"],
+        "db_data_type": "decimal(7,2)"
+      },
+      {
+        "name": "TotalRetailPriceAmount",
+        "provider": "standard",
+        "type": "Integer",
+        "options": ["NULL"],
+        "db_data_type": "decimal(16,5)"
+      },
+      {
+        "name": "itemUnitSystem",
+        "provider": "standard",
+        "type": "Integer",
+        "min": 1,
+        "max": 100,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}
