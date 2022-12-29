@@ -1,0 +1,47 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 5,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["ReasonCode"],
+    "columns_list": [
+      {
+        "name": "ReasonCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["diwali off","loyalty of","defective","POS no Sal","Past use b"],
+        "db_data_type": "varchar(10) not null UNIQUE"
+      },
+      {
+        "name": "ReasonCodeGroupCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["None"],
+        "db_data_type": "varchar(20)"
+      },
+      {
+        "name": "ReasonName",
+        "provider": "standard",
+        "type": "string",
+        "options": ["Null"],
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "ReasonDescription",
+        "provider": "standard",
+        "type": "string",
+        "options": ["Null"],
+        "db_data_type": "varchar(4000)"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 3,
+    "number_of_records": 2,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["CustomerOrderTypeCode"],
+    "columns_list": [
+      {
+        "name": "CustomerOrderTypeCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["01", "02"],
+        "db_data_type": "char(2) NOT NULL UNIQUE"
+      },
+      {
+        "name": "CustomerOrderTypeName",
+        "provider": "standard",
+        "type": "string",
+        "length": 40,
+        "options": ["takeAway", "HomeDelivery"],
+        "db_data_type": "varchar(40)"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

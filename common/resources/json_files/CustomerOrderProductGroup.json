@@ -1,0 +1,49 @@
+{
+  "TableProperties" : {
+    "number_of_columns": 5,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo"],
+    "primary_key": ["CustomerOrderGroupID"],
+    "columns_list": [
+      {
+        "name": "CustomerOrderGroupID",
+        "provider": "standard",
+        "type": "string",
+        "options": ["01","02","03"],
+        "db_data_type": "integer not null UNIQUE"
+      },
+      {
+        "name": "Inventory",
+        "provider": "standard",
+        "type": "integer",
+        "min": 1,
+        "max": 10000,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "CustomerOrderProductGroupTypeCode",
+        "provider": "standard",
+        "type": "string",
+        "options": ["A1","B1","C1"],
+        "db_data_type": "char(2)"
+      },
+      {
+        "name": "SupplierID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 10000,
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}

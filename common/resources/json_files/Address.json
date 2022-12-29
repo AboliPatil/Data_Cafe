@@ -1,0 +1,72 @@
+{
+  "TableProperties": {
+    "number_of_columns": 9,
+    "number_of_records": 20,
+    "providers": ["profile", "standard", "bank", "geo", "address"],
+    "primary_key": ["AddressID"],
+    "address_country": ["en_IN"],
+    "columns_list": [
+      {
+        "name": "AddressID",
+        "provider": "standard",
+        "type": "int",
+        "min": 1,
+        "max": 1000,
+        "db_data_type": "integer NOT NULL UNIQUE"
+      },
+      {
+        "name": "AddressLine1",
+        "provider": "address",
+        "type": "building_number",
+        "db_data_type": "varchar(80)"
+      },
+      {
+        "name": "AddressLine2",
+        "provider": "address",
+        "type": "street_address",
+        "db_data_type": "varchar(80)"
+      },
+      {
+        "name": "AddressLine3",
+        "provider": "address",
+        "type": "String",
+        "options": ["None"],
+        "db_data_type": "varchar(80)"
+      },
+      {
+        "name": "AddressLine4",
+        "provider": "address",
+        "type": "String",
+        "options": ["None"],
+        "db_data_type": "varchar(80)"
+      },
+      {
+        "name": "City",
+        "provider": "address",
+        "type": "city",
+        "db_data_type": "varchar(30)"
+      },
+      {
+        "name": "Territory",
+        "provider": "address",
+        "type": "state",
+        "db_data_type": "varchar(50)"
+      },
+      {
+        "name": "PostalCodeID",
+        "provider": "address",
+        "type": "pincode",
+        "db_data_type": "integer"
+      },
+      {
+        "name": "ingestionTimeStamp",
+        "provider": "standard",
+        "type": "datetime",
+        "start_date": "-1d",
+        "end_date": "now",
+        "db_data_type": "datetime DEFAULT now()"
+      }
+    ],
+    "output_format": "csv"
+  }
+}
