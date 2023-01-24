@@ -18,6 +18,8 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read(utils.get_config_path())
     default = config["DEFAULT"]
-    table_name = sys.argv[1]
-    table_config = config[table_name]
-    main(default, table_config)
+    # table_name = sys.argv[1]
+    tables_run_seq = default["tables_run_seq"].split(",")
+    for table_seq in tables_run_seq:
+        table_config = config[table_seq]
+        main(default, table_config)
