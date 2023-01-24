@@ -35,3 +35,12 @@ def quarter(df, column_name, new_col_name):
     df = df.withColumn(new_col_name, f.quarter(f.to_date(f.col(column_name))))
     return df
 
+
+def week_of_year(df, column_name, new_col_name):
+    df = df.withColumn(new_col_name, f.weekofyear(f.to_date(f.col(column_name))))
+    return df
+
+
+def date(df, column_name, new_col_name):
+    df = df.withColumn(new_col_name, f.to_date(f.col(column_name)))
+    return df

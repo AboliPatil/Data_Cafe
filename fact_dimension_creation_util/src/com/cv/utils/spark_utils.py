@@ -9,6 +9,8 @@ def get_spark_session(default, table_name="generic"):
     spark = SparkSession \
         .builder \
         .appName(table_name) \
+        .config('parentProject', default["project_id"]) \
+        .config("credentialsFile", default["pem_file"]) \
         .config("spark.driver.extraClassPath", mysql_jar_path) \
         .config("spark.jars", bigquery_jar) \
         .getOrCreate()
